@@ -1,0 +1,20 @@
+script.
+  (() => {
+    function loadValine () {
+      function initValine () {
+        let initData = {
+          el: '#vcomment',
+          appId: 'r1rCntFF11juImx92HoaC18u-gzGzoHsz',
+          appKey: '2WhEyiHD6JMxamfRQ4YZOxRi',
+          serverURLs: 'uUgjL31U0Xja4Sb6QX0Qfox6'
+        }
+        
+        const valine = new Valine(initData)
+      }
+
+      if (typeof Valine === 'function') initValine() 
+      else getScript('!{url_for(theme.asset.valine)}').then(initValine)
+    }
+
+    window.pjax ? loadValine() : window.addEventListener('load', loadValine)
+  })()
